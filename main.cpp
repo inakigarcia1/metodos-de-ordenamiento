@@ -42,21 +42,39 @@ main(){
 	
 	leerVector(vectorOriginal, orden);
 	
-	int opcion = 0;
+	int opcion = 1;
 	
-	system("cls");
-	printf("A continuacion, escoja el metodo deseado para ordenar el vector ingresado:\n\n");
-	printf("\t1) Metodo de la burbuja mejorado o intercambio.\n");
-	printf("\t2) Metodo de la baraja o insercion.\n");
-	printf("\t3) Metodo sencillo o de seleccion.\n");
-	printf("\t4) Metodo MergeSort o por mezcla.\n");
-	
-	printf("\n\n");
-	printf("Ingrese la opcion deseada: ");
-	scanf("%d", &opcion);
-	
-	if (opcion == 1)
-		burbuja_mejorado(vectorOriginal, orden);
+	while (opcion != 0){
+		system("cls");
+		printf("A continuacion, escoja el metodo deseado para ordenar el vector ingresado:\n\n");
+		printf("\t1) Metodo de la burbuja mejorado o intercambio.\n");
+		printf("\t2) Metodo de la baraja o insercion.\n");
+		printf("\t3) Metodo sencillo o de seleccion.\n");
+		printf("\t4) Metodo MergeSort o por mezcla.\n\n");
+		printf("\t0) Salir\n");
+		
+		printf("\n\n\n");
+		printf("Ingrese la opcion deseada: ");
+		scanf("%d", &opcion);
+		
+		if (opcion == 1){
+			burbuja_mejorado(vectorOriginal, orden);
+			printf("\n\n");
+			system("pause");
+			continue;
+		}
+			
+		if (opcion == 2);
+			// Metodo de la baraja
+		if (opcion == 3);
+			// Metodo sencillo
+		if (opcion == 4);
+			// Metodo MergeSort
+		if (opcion == 0){
+			printf("\n\nUsted ha finalizado el programa. Saliendo...\n");
+			break;
+		}
+	}
 }
 	
 
