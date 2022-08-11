@@ -7,6 +7,7 @@
 bool ordenValido(int orden);
 void ingresarOrden(int &orden);
 void leerVector(int vector[], int orden);
+void reiniciarOpciones();
 
 main(){
 	int orden = 0;
@@ -59,13 +60,16 @@ main(){
 		
 		if (opcion == 1){
 			burbuja_mejorado(vectorOriginal, orden);
-			printf("\n\n");
-			system("pause");
+			reiniciarOpciones();
 			continue;
 		}
 			
-		if (opcion == 2);
-			// Metodo de la baraja
+		if (opcion == 2){
+			insercion(vectorOriginal, orden);
+			reiniciarOpciones();
+			continue;
+		}
+		
 		if (opcion == 3);
 			// Metodo sencillo
 		if (opcion == 4);
@@ -104,4 +108,9 @@ void leerVector(int vector[], int orden){
 			orden++;
 		}
 	}
+}
+
+void reiniciarOpciones(){
+	printf("\n\n");
+	system("pause");
 }
