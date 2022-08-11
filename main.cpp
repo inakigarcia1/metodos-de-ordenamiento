@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <ctype.h>
+#include "metodos.h"
 
 bool ordenValido(int orden);
 void ingresarOrden(int &orden);
@@ -40,6 +41,22 @@ main(){
 	int vectorOriginal[orden] = {0};
 	
 	leerVector(vectorOriginal, orden);
+	
+	int opcion = 0;
+	
+	system("cls");
+	printf("A continuacion, escoja el metodo deseado para ordenar el vector ingresado:\n\n");
+	printf("\t1) Metodo de la burbuja mejorado o intercambio.\n");
+	printf("\t2) Metodo de la baraja o insercion.\n");
+	printf("\t3) Metodo sencillo o de seleccion.\n");
+	printf("\t4) Metodo MergeSort o por mezcla.\n");
+	
+	printf("\n\n");
+	printf("Ingrese la opcion deseada: ");
+	scanf("%d", &opcion);
+	
+	if (opcion == 1)
+		burbuja_mejorado(vectorOriginal, orden);
 }
 	
 
