@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <ctype.h>
 
 bool ordenValido(int orden);
 void ingresarOrden(int &orden);
+void leerVector(int vector[], int orden);
 
 main(){
 	int orden = 0;
@@ -19,7 +21,9 @@ main(){
 	ingresarOrden(orden);
 	
 	if (ordenValido(orden)){
-		printf("Valido.");
+		printf("Orden valido. ");
+		system("pause");
+		system("CLS");
 	}
 	else{
 		while(!ordenValido(orden)){
@@ -28,8 +32,14 @@ main(){
 			system("CLS");
 			ingresarOrden(orden);
 		}
-		printf("Valido.");
+		printf("Orden valido. ");
+		system("pause");
+		system("CLS");
 	}
+	
+	int vectorOriginal[orden] = {0};
+	
+	leerVector(vectorOriginal, orden);
 }
 	
 
@@ -41,4 +51,22 @@ bool ordenValido(int orden){
 void ingresarOrden(int &orden){
 	printf("Por favor, ingrese el orden del vector (solo se admiten numeros naturales): ");
 	scanf("%d", &orden);
+}
+
+void leerVector(int vector[], int orden){
+	int valor = 0;
+	for(int i = 0; i < orden; i++){
+		printf("\nIngrese el valor nro. %d del vector (solo numeros enteros): ", i + 1);
+		scanf("%d", &valor);
+		
+		if (!isdigit(valor))
+			vector[i] = valor;
+		else{
+			printf("\nEl valor ingresado no es entero. Reintente.\n");
+			system("pause");
+			system("CLS");
+			i--;
+			orden++;
+		}
+	}
 }
