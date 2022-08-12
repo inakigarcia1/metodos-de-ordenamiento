@@ -48,7 +48,7 @@ void insercion(int vector[], int orden){
 	
 	int vectorMod[orden] = {0};
 	
-	for (int i = 0; i < orden; i++){
+	for (int i = 0; i <= orden; i++){
 		vectorMod[i] = vector[i];
 	}
 	
@@ -68,7 +68,7 @@ void insercion(int vector[], int orden){
 	
 	printf("\n\n");
 	
-	for(int i = 1; i <= orden; i++)
+	for(int i = 1; i <= orden-1; i++)
 	{
 		aux = *(vectorMod+i);
 		j = i-1;
@@ -78,10 +78,10 @@ void insercion(int vector[], int orden){
 			j--;
 		}
 		*(vectorMod+j+1)=aux;
-		
-		for (int i = 0; i < orden; i++){
+		for (int i = 0; i < orden; i++)
+		{
 			printf("%d ",*(vectorMod+i));
 		}
-		printf("\n");;
+		printf("\n");
 	}
 }

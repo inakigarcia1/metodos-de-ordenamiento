@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <ctype.h>
+#include <conio.h>
 #include "metodos.h"
 
 bool ordenValido(int orden);
@@ -9,33 +10,34 @@ void ingresarOrden(int &orden);
 void leerVector(int vector[], int orden);
 void reiniciarOpciones();
 
+char pause;
+
 main(){
-	int orden = 0;
+	int orden=0;
 	
 	printf("**********TRABAJO INTEGRADOR GRUPAL**********\n");
 	printf("Algoritmos y Estructuras de Datos: 1er Cuatrimestre.\n");
 	
 	printf("\n\nMetodos de ordenamiento.\n");
-	printf("\nA continuacion, usted va a introducir un vector, el cual sera luego ordenado de acuerdo a diferentes algoritmos de ordenamiento. ");
-	system("pause");
-	system("CLS");
+	printf("\nIntroduzca un vector, el cual sera luego ordenado con diferentes algoritmos de ordenamiento.\n\n");
+	pause=(char)getch();
 	
 	ingresarOrden(orden);
 	
 	if (ordenValido(orden)){
-		printf("Orden valido. ");
-		system("pause");
+		printf("Orden valido.\n\n");
+		pause=(char)getch();
 		system("CLS");
 	}
 	else{
 		while(!ordenValido(orden)){
 			printf("\nError, no se introdujo un valor valido. Reintente.\n");
-			system("pause");
+			pause=(char)getch();
 			system("CLS");
 			ingresarOrden(orden);
 		}
-		printf("Orden valido. ");
-		system("pause");
+		printf("Orden valido.\n\n");
+		pause=(char)getch();
 		system("CLS");
 	}
 	
@@ -102,7 +104,7 @@ void leerVector(int vector[], int orden){
 			vector[i] = valor;
 		else{
 			printf("\nEl valor ingresado no es entero. Reintente.\n");
-			system("pause");
+			pause=(char)getch();
 			system("CLS");
 			i--;
 			orden++;
@@ -112,5 +114,5 @@ void leerVector(int vector[], int orden){
 
 void reiniciarOpciones(){
 	printf("\n\n");
-	system("pause");
+	pause=(char)getch();
 }
