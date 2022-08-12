@@ -44,6 +44,7 @@ void burbuja_mejorado(int vector[], int orden){
 	printf("\n");
 }
 
+// Metodo de insercion o baraja
 void insercion(int vector[], int orden){
 	
 	int vectorMod[orden] = {0};
