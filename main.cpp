@@ -13,32 +13,36 @@ void reiniciarOpciones();
 char pause;
 
 main(){
-	int orden=0;
+
+	int orden = 0;
+	bool reintento = false;
 	
-	printf("**********TRABAJO INTEGRADOR GRUPAL**********\n");
-	printf("Algoritmos y Estructuras de Datos: 1er Cuatrimestre.\n");
+	while (!ordenValido(orden)){
+		
+		printf("**********TRABAJO INTEGRADOR GRUPAL**********\n");
+		printf("Algoritmos y Estructuras de Datos: 1er Cuatrimestre.\n");
 	
-	printf("\n\nMetodos de ordenamiento.\n");
-	printf("\nIntroduzca un vector, el cual sera luego ordenado con diferentes algoritmos de ordenamiento.\n\n");
-	pause=(char)getch();
-	
-	ingresarOrden(orden);
-	
-	if (ordenValido(orden)){
-		printf("Orden valido.\n\n");
-		pause=(char)getch();
-		system("CLS");
-	}
-	else{
-		while(!ordenValido(orden)){
-			printf("\nError, no se introdujo un valor valido. Reintente.\n");
+		printf("\n\nMetodos de ordenamiento.\n\n");
+		printf("\nPresione una tecla para introducir un vector, el cual sera luego ordenado con diferentes algoritmos de ordenamiento.");
+		
+		if (!reintento) pause=(char)getch();
+		
+		reintento = true;
+		
+		ingresarOrden(orden);
+		
+		if (ordenValido(orden)){
+			printf("\n\n\tOrden valido.\n\n");
+			printf("\nPresione una tecla para continuar...");
 			pause=(char)getch();
 			system("CLS");
-			ingresarOrden(orden);
 		}
-		printf("Orden valido.\n\n");
-		pause=(char)getch();
-		system("CLS");
+		else{
+			printf("\n\tError, no se introdujo un valor valido. Presione una tecla para reintentar...");
+			pause=(char)getch();
+			system("CLS");
+		}
+	
 	}
 	
 	int vectorOriginal[orden] = {0};
@@ -90,7 +94,7 @@ bool ordenValido(int orden){
 }
 
 void ingresarOrden(int &orden){
-	printf("Por favor, ingrese el orden del vector (solo se admiten numeros naturales): ");
+	printf("\n\nPor favor, ingrese el orden del vector (solo se admiten numeros naturales): ");
 	scanf("%d", &orden);
 }
 
@@ -113,6 +117,6 @@ void leerVector(int vector[], int orden){
 }
 
 void reiniciarOpciones(){
-	printf("\n\n");
+	printf("\n\n\t* Presione una tecla para volver el menu principal...");
 	pause=(char)getch();
 }

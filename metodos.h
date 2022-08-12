@@ -56,7 +56,7 @@ void insercion(int vector[], int orden){
 	
 	int j, aux, n;
 	
-	printf ("*** Este es el Metodo por Insercion ***\n\n");
+	printf ("\n*** Este es el Metodo por Insercion ***\n\n");
 
 	printf("\n\n");
 	
