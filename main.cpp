@@ -62,7 +62,14 @@ main(){
 		
 		printf("\n\n\n");
 		printf("Ingrese la opcion deseada: ");
-		scanf("%d", &opcion);
+		
+		_flushall();
+		if ((scanf("%d", &opcion)) != 1){
+			printf("\nEl valor ingresado no es valido. Presione una tecla para reintentar...");
+			pause=(char)getch();
+			continue;
+		}
+		
 		
 		if (opcion == 1){
 			burbuja_mejorado(vectorOriginal, orden);
@@ -95,6 +102,7 @@ bool ordenValido(int orden){
 
 void ingresarOrden(int &orden){
 	printf("\n\nPor favor, ingrese el orden del vector (solo se admiten numeros naturales): ");
+	_flushall();
 	scanf("%d", &orden);
 }
 
@@ -102,12 +110,11 @@ void leerVector(int vector[], int orden){
 	int valor = 0;
 	for(int i = 0; i < orden; i++){
 		printf("\nIngrese el valor nro. %d del vector (solo numeros enteros): ", i + 1);
-		scanf("%d", &valor);
 		
-		if (!isdigit(valor))
+		if (scanf("%d", &valor) == 1)
 			vector[i] = valor;
 		else{
-			printf("\nEl valor ingresado no es entero. Reintente.\n");
+			printf("\nEl valor ingresado no es entero. Presione una tecla para reintentar...");
 			pause=(char)getch();
 			system("CLS");
 			i--;

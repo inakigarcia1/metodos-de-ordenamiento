@@ -22,8 +22,14 @@ void burbuja_mejorado(int vector[], int orden){
 	{
 		printf(" [%d] ", vectorMod[i]);
 	}
+	
+	printf("\n\n");
+	printf("***Paso a paso***");
+	printf("\n\n");
+	
 	for(int i = 0; i < (orden - 1) && bandera == 1; i++)
 	{
+		printf(" %d) ", i + 1);
 		bandera = 0;
 		for (int j = 0; j < (orden - 1); j++)
 		{
@@ -35,13 +41,18 @@ void burbuja_mejorado(int vector[], int orden){
 				vectorMod[j+1] = temporal;
 			}
 		}
+		for(int i = 0; i < orden; i++)
+		{	
+			printf(" [%d] ", vectorMod[i]);
+		}
+		
+		if (i == (orden - 2)){
+			printf("--> Vector final, ordenado.");
+		}
+		else{
+			printf("\n");
+		}
 	}
-	printf ("\n\n***   Arreglo Ordenado   ***\n\n");
-	for(int i = 0; i < orden; i++)
-	{
-		printf(" [%d] ", vectorMod[i]);
-	}
-	printf("\n");
 }
 
 // Metodo de insercion o baraja
@@ -56,15 +67,12 @@ void insercion(int vector[], int orden){
 	
 	int j, aux, n;
 	
-	printf ("\n*** Este es el Metodo por Insercion ***\n\n");
+	printf ("\n*** Usted ha escogido el metodo por insercion ***\n\n");
 
-	printf("\n\n");
-	
-	printf("Mi vector es: ");
-	
-	for(int i=0; i < orden; i++)
+	printf ("\n***El arreglo a ordenar es:***\n\n");
+	for(int i = 0; i < orden; i++)
 	{
-		printf("[%d] ", vectorMod[i]);
+		printf(" [%d] ", vectorMod[i]);
 	}
 	
 	printf("\n\n");
