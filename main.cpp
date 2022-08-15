@@ -57,8 +57,9 @@ main(){
 		printf("\t1) Metodo de la burbuja mejorado o intercambio.\n");
 		printf("\t2) Metodo de la baraja o insercion.\n");
 		printf("\t3) Metodo sencillo o de seleccion.\n");
-		printf("\t4) Metodo MergeSort o por mezcla.\n\n");
-		printf("\t0) Salir\n");
+		printf("\t4) Metodo rapido o QuickSort.\n");
+		printf("\t5) Metodo MergeSort o por mezcla.\n\n");
+		printf("\t0) Salir.\n");
 		
 		printf("\n\n\n");
 		printf("Ingrese la opcion deseada: ");
@@ -83,10 +84,52 @@ main(){
 			continue;
 		}
 		
-		if (opcion == 3);
-			// Metodo sencillo
-		if (opcion == 4);
-			// Metodo MergeSort
+		if (opcion == 3){
+			seleccion(vectorOriginal, orden);
+			reiniciarOpciones();
+			continue;
+		}
+		if (opcion == 4){
+			imprimirInfo(vectorOriginal, orden, 4);
+			
+			int vectorMod[orden] = {0};
+	
+			for (int i = 0; i <= orden; i++){
+				vectorMod[i] = vectorOriginal[i];
+			}
+			
+			quickSort(vectorMod, orden, 0, orden - 1);
+			
+			for (int i = 0; i < orden; i++){
+    			printf(" [%d] ", vectorMod[i]);
+			}
+			printf("--> Vector ordenado.");
+			
+			reiniciarOpciones();
+			continue;
+		}
+		
+		if (opcion == 5){
+			imprimirInfo(vectorOriginal, orden, 5);
+			
+			int vectorMod[orden] = {0};
+	
+			for (int i = 0; i <= orden; i++){
+				vectorMod[i] = vectorOriginal[i];
+			}
+			
+			mergeSort(vectorMod, 0, orden - 1);
+			
+			for (int i = 0; i < orden; i++){
+    			printf(" [%d] ", vectorMod[i]);
+			}
+			printf("--> Vector ordenado.");
+			
+			reiniciarOpciones();
+			continue;
+		}
+			
+			
 		if (opcion == 0){
 			printf("\n\nUsted ha finalizado el programa. Saliendo...\n");
 			break;
@@ -111,6 +154,7 @@ void leerVector(int vector[], int orden){
 	for(int i = 0; i < orden; i++){
 		printf("\nIngrese el valor nro. %d del vector (solo numeros enteros): ", i + 1);
 		
+		_flushall();
 		if (scanf("%d", &valor) == 1)
 			vector[i] = valor;
 		else{
@@ -118,7 +162,6 @@ void leerVector(int vector[], int orden){
 			pause=(char)getch();
 			system("CLS");
 			i--;
-			orden++;
 		}
 	}
 }
